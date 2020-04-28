@@ -7,7 +7,7 @@ I want these songs and albums (https://www.youtube.com/watch?v=0cmIrC9rGMU&list=
 - split and output to dir
 
 ## scratchy scratchpad
-- gettting title and description
+- gettting title and description *DEPRACATED*
 ```python
 import gdata.youtube
 import gdata.youtube.service

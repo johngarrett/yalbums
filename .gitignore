@@ -1,0 +1,13 @@
+secrets.txt
+.Python
+[Bb]in
+etc
+share
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
