@@ -11,3 +11,6 @@ share
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+download
+temp
+
