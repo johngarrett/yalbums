@@ -34,17 +34,17 @@ def get_songs():
     return songs
 
 def split_download(songs):
-    source_file = AudioSegment.from_mp3(save_location)
+    source_file = AudioSegment.from_file(save_location)
     ranges = []
     for time in songs:
         ranges.append(time)
 
-    for i in range(ranges):
+    for i in range(len(ranges)):
         if i == len(ranges) - 1:
             song_file = source_file[ranges[i]:]
         else:
             song_file = source_file[ranges[i]: ranges[i+1]]
-        song_file.export(f'./output/{songs[range[i]]}.mp3')
+        song_file.export(f'./output/{songs[ranges[i]]}.mp3')
 
 if __name__ == '__main__':
     # skip getting title and description for now
