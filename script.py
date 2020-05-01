@@ -27,7 +27,8 @@ def get_songs():
         except EOFError:
             break
         time, name = line.split(' ', 1)
-        songs[int(time.replace(':', '')) * 100] = name # seconds
+        mins, seconds = time.split(':')
+        songs[(int(mins) * 60 + int(seconds)) * 1000] = name # mili seconds
     
     for time, name in songs.items():
         print(f'{name} @ {time}')
@@ -40,11 +41,15 @@ def split_download(songs):
         ranges.append(time)
 
     for i in range(len(ranges)):
+        print(len(source_file))
         if i == len(ranges) - 1:
             song_file = source_file[ranges[i]:]
+            print(f'From {ranges[i]} to end -- {songs[ranges[i]]}')
+            song_file.export(f'./output/{songs[ranges[i]]}.mp3', format='mp3', codec='mp3')
         else:
+            print(f'From {ranges[i]} to {ranges[i+1]} for song {songs[ranges[i]]}')
             song_file = source_file[ranges[i]: ranges[i+1]]
-        song_file.export(f'./output/{songs[ranges[i]]}.mp3')
+            song_file.export(f'./output/{songs[ranges[i]]}.mp3', format='mp3', codec='mp3')
 
 if __name__ == '__main__':
     # skip getting title and description for now
